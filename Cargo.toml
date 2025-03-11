@@ -4,3 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+sqlx = { version = "0.8", features = [ "runtime-async-std" ] }
+
+actix-web = "4"
+
+serde = { version = "1.0", default-features = false }
+
+tokio = { version = "1.44.0", features = ["full"] }
+
+chrono = "0.4.40"
+
