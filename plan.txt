@@ -1,0 +1,22 @@
+Plán tvorby aplikace - Hlasovací systém DO  D
+
+Na co se dotazník bude dotazovat?
+  Školu z které uchazeč přišel, vzdálenost od školy, jeho ročník, o jaký obor má zájem, hodnocení přístupu učitelů, hodnocení prostor školy, jestli jim návštěva pomohla se rozhodnout a zda-li by ji zvažovali, jak se o škole dozvěděli, byli na veletrhu a jeho hodnocení, pořadí školy, žák/doprovod.
+
+Výběr programovacích jazyků - hotovo 22.2.2
+  bylo rozhodnuto použít pro backend Rustlang, jakožto databázový jazyk SQL a pro frontend react
+Základní sepsání backendu - hotovo 24.2.25
+  byl sepsán základní kód, aby ostatní členi týmu mohli na něčem začít stavět 
+Začátek tvorby frontendu aplikace - nedokončeno
+  Tvorba UI aplikace
+  Stránka 1.
+    uvítání do dotazníku, tlačítko pro vstup do dotazníku a logo školy
+  Stránka 2.
+    Dotazování se na jednotlivé věci, menu s možnostmi u všeho 1-5 potažmo výběr z možností
+  Stránka 3.
+    podekovani za zodpovezeni, logo školy a možnost vrácení se na začátek
+Tvorba SQL databáze
+  Humpolíček vytvoří databázi (funknční)
+Finalizace projektu
+  Propojení backendu s frontendem
+
