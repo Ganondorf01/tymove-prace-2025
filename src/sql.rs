@@ -18,7 +18,7 @@ pub async fn init_db(pool: &PgPool) {
             teacher_rating INT CHECK (teacher_rating BETWEEN 1 AND 5),
             school_rating INT CHECK (school_rating BETWEEN 1 AND 5),
             field_of_study VARCHAR(10) CHECK (field_of_study IN ('IT', 'SC', 'EKO', 'ELSI', 'ELSL', 'TL', 'EKL')),
-            birth_year INT CHECK (birth_year BETWEEN 2008 AND 2012),
+            birth_year INT CHECK (birth_year BETWEEN 1920 AND 2015),
             visit_duration INT CHECK (visit_duration BETWEEN 5 AND 180),
             submitted_at TIMESTAMP DEFAULT now()
         );"

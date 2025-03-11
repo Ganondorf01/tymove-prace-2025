@@ -23,7 +23,7 @@ async fn main() -> std::io::Result<()> {
     let pool = connect_db().await;
     init_db(&pool).await;
 
-    let limiter = Arc::new(RateLimiter::direct(Quota::per_hour(NonZeroU32::new(1200).unwrap())));
+    let limiter = Arc::new(RateLimiter::direct(Quota::per_hour(NonZeroU32::new(900).unwrap())));
 
     HttpServer::new(move || {
         App::new()

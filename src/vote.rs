@@ -31,7 +31,7 @@ pub async fn submit_vote(
         return HttpResponse::BadRequest().json("Invalid field of study");
     }
     if !(2008..=2012).contains(&vote.birth_year) {
-        return HttpResponse::BadRequest().json("Invalid birth year (must be 2008-2012)");
+        return HttpResponse::BadRequest().json("Invalid birth year (must be 1920-2015)");
     }
     if !(5..=180).contains(&vote.visit_duration) {
         return HttpResponse::BadRequest().json("Invalid visit duration (must be 5-180 minutes)");
