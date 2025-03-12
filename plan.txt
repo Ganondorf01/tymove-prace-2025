@@ -37,5 +37,7 @@ Jan - zprovoznění SQL databáze dle daných parametrů a následné upravení 
             submitted_at TIMESTAMP DEFAULT now()
         );
 
-  Alex - tvorba webových stránek, ideálně skrze react/svelte, v závislosti na tom s čím se mu bude lépe pracovat
-
+Alex - tvorba webových stránek, ideálně skrze react/svelte, v závislosti na tom s čím se mu bude lépe pracovat
+  - ideálně začít tvořit společně návrh webové stránky
+  - grafická stránka není dvakrát důležitá ale práce skrze tailwind css by byla ideální
+  - začátek práce nastane ve chvíli kdy dostane svůj notebook zpátky
