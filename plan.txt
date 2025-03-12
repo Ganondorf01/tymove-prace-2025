@@ -20,3 +20,7 @@ Tvorba SQL databáze
 Finalizace projektu
   Propojení backendu s frontendem
 
+
+march 12 9:54
+
+je nutno vytvořit databázi v sql
