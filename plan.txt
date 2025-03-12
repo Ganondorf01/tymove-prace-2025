@@ -41,3 +41,6 @@ Alex - tvorba webových stránek, ideálně skrze react/svelte, v závislosti na
   - ideálně začít tvořit společně návrh webové stránky
   - grafická stránka není dvakrát důležitá ale práce skrze tailwind css by byla ideální
   - začátek práce nastane ve chvíli kdy dostane svůj notebook zpátky
+
+Max - úprava backendu s cílem poupravení pro splnění cíl
+Max - úprava backendu s cílem poupravení pro splnění cílů
