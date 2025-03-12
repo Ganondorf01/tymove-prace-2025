@@ -25,7 +25,7 @@ march 12 9:54
 
 je nutno vytvořit databázi v sql
 
-Jan zprovoznění SQL databáze dle daných parametrů a následné upravení sqlx query reportů/nahlášení Maxovi pro úpravu
+Jan - zprovoznění SQL databáze dle daných parametrů a následné upravení sqlx query reportů/nahlášení Maxovi pro úpravu
   - navrhovaná forma databáze Maxem 
   -CREATE TABLE IF NOT EXISTS votes (
             id SERIAL PRIMARY KEY,
@@ -35,4 +35,7 @@ Jan zprovoznění SQL databáze dle daných parametrů a následné upravení sq
             birth_year INT CHECK (birth_year BETWEEN 1920 AND 2015),
             visit_duration INT CHECK (visit_duration BETWEEN 5 AND 180),
             submitted_at TIMESTAMP DEFAULT now()
-        ); 
+        );
+
+  Alex - tvorba webových stránek, ideálně skrze react/svelte, v závislosti na tom s čím se mu bude lépe pracovat
+
