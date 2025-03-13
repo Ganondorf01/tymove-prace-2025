@@ -36,6 +36,9 @@ Jan - zprovoznění SQL databáze dle daných parametrů a následné upravení 
             visit_duration INT CHECK (visit_duration BETWEEN 5 AND 180),
             submitted_at TIMESTAMP DEFAULT now()
         );
+  - je nutno okamžitě vytvořit databázi
+  - ideálně do 16.3
+
 
 Alex - tvorba webových stránek, ideálně skrze react/svelte, v závislosti na tom s čím se mu bude lépe pracovat
   - ideálně začít tvořit společně návrh webové stránky
