@@ -30,6 +30,8 @@ pub async fn get_stats(pool: web::Data<PgPool>, req: HttpRequest) -> impl Respon
     }
 }
 
+//funkce pro vypsani hlasu za pomoci exportovani dat - vypisuje v JSON souboru 
+
 pub async fn admin_export(pool: web::Data<PgPool>, req: HttpRequest) -> impl Responder {
     match validate_token(req) {
         Ok(_) => export_data(pool).await,
