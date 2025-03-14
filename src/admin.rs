@@ -9,6 +9,8 @@ struct AdminResponse {
     total_votes: i64,
 }
 
+// funkce pro vypsani hlasu 
+
 pub async fn get_stats(pool: web::Data<PgPool>, req: HttpRequest) -> impl Responder {
     match validate_token(req) {
         Ok(_) => {
