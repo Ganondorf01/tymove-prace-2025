@@ -39,6 +39,8 @@ pub async fn admin_export(pool: web::Data<PgPool>, req: HttpRequest) -> impl Res
     }
 }
 
+// funkce pro smazani hlasu 
+
 pub async fn delete_votes(pool: web::Data<PgPool>, req: HttpRequest) -> impl Responder {
     match validate_token(req) {
         Ok(_) => {
@@ -51,5 +53,4 @@ pub async fn delete_votes(pool: web::Data<PgPool>, req: HttpRequest) -> impl Res
         }
         Err(err) => err,
     }
-}
-
+}}
