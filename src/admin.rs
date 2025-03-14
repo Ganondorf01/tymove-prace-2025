@@ -53,4 +53,4 @@ pub async fn delete_votes(pool: web::Data<PgPool>, req: HttpRequest) -> impl Res
         }
         Err(err) => err,
     }
-}}
+}
