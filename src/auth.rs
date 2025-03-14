@@ -6,6 +6,8 @@ use chrono::{Utc, Duration};
 
 const SECRET_KEY: &[u8] = b"supersecretkey";
 
+// vytvoreni login requestu
+
 #[derive(Deserialize)]
 struct LoginRequest {
     username: String,
