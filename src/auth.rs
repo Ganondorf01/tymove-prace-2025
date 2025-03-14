@@ -4,6 +4,8 @@ use jsonwebtoken::{encode, decode, Header, Algorithm, Validation, EncodingKey, D
 use bcrypt::{verify, DEFAULT_COST, hash};
 use chrono::{Utc, Duration};
 
+// vytvoreni extremne bezpecneho klice :333
+
 const SECRET_KEY: &[u8] = b"supersecretkey";
 
 // vytvoreni login requestu
