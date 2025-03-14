@@ -16,11 +16,14 @@ struct LoginRequest {
     password: String,
 }
 
+
 #[derive(Serialize, Deserialize)]
 struct Claims {
     sub: String,
     exp: usize,
 }
+
+// vytvoreni velice bezpecneho admin hesla :thumbs-up:
 
 const ADMIN_USERNAME: &str = "admin";
 const ADMIN_PASSWORD_HASH: &str = "$2b$12$eImiTXuWVxfM37uY4JANjQ6.D9yOGsOq3Fz9HCB1dcFP.sAp3DAmC";
