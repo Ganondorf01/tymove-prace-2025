@@ -5,7 +5,7 @@ use std::fs::File;
 
 pub async fn export_data(pool: web::Data<PgPool>) -> impl Responder {
     let rows = sqlx::query!(
-        "SELECT teacher_rating, school_rating, field_of_study, birth_year, visit_duration, submitted_at FROM votes"
+        "SELECT teacher_rating, school_rating, field_of_study, birth_year, visit_duration FROM votes"
     )
     .fetch_all(pool.get_ref())
     .await;
@@ -15,17 +15,16 @@ pub async fn export_data(pool: web::Data<PgPool>) -> impl Responder {
             let file = File::create("export.csv").unwrap();
             let mut wtr = Writer::from_writer(file);
 
-            wtr.write_record(&["Teacher Rating", "School Rating", "Field of Study", "Birth Year", "Visit Duration", "Submitted At"])
+            wtr.write_record(&["Teacher Rating", "School Rating", "Field of Study", "Birth Year", "Visit Duration"])
                 .unwrap();
 
             for row in data {
                 wtr.write_record(&[
-                    row.teacher_rating.to_string(),
-                    row.school_rating.to_string(),
-                    row.field_of_study,
-                    row.birth_year.to_string(),
-                    row.visit_duration.to_string(),
-                    row.submitted_at.to_string(),
+                    row.teacher_rating.expect("REASON").to_string(),
+                    row.school_rating.expect("REASON").to_string(),
+                    row.field_of_study.expect("REASON"),
+                    row.birth_year.expect("REASON").to_string(),
+                    row.visit_duration.expect("REASON").to_string(),
                 ])
                 .unwrap();
             }
