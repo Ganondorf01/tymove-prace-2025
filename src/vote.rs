@@ -1,23 +1,25 @@
 use actix_web::{web, Responder, HttpResponse};
-use sqlx::PgPool;
+use sqlx::{PgPool, types::time::PrimitiveDateTime};
 use serde::Deserialize;
 use std::sync::Arc;
-use governor::RateLimiter;
+use governor::{RateLimiter, state::InMemoryState, clock::DefaultClock, Quota, state::NotKeyed};
 use chrono::Utc;
+use time::{OffsetDateTime, UtcOffset};
 
+//let now_pdt = PrimitiveDateTime::new(now_odt.date(), now_odt.time());
 #[derive(Deserialize)]
 pub struct Vote {
-    pub teacher_rating: u8,
-    pub school_rating: u8,
+    pub teacher_rating: i32,
+    pub school_rating: i32,
     pub field_of_study: String,
-    pub birth_year: u16,
-    pub visit_duration: u16,
+    pub birth_year: i32,
+    pub visit_duration: i32,
 }
 
 pub async fn submit_vote(
     pool: web::Data<PgPool>, 
     vote: web::Json<Vote>, 
-    limiter: web::Data<Arc<RateLimiter>>
+    limiter: web::Data<Arc<RateLimiter<NotKeyed, InMemoryState, DefaultClock>>>
 ) -> impl Responder {
     
     if !(1..=5).contains(&vote.teacher_rating) {
@@ -37,19 +39,18 @@ pub async fn submit_vote(
         return HttpResponse::BadRequest().json("Invalid visit duration (must be 5-180 minutes)");
     }
 
-    if limiter.check_key(&"global").is_err() {
+    if limiter.check().is_err() {
         return HttpResponse::TooManyRequests().json("Rate limit exceeded");
     }
 
     let result = sqlx::query!(
-        "INSERT INTO votes (teacher_rating, school_rating, field_of_study, birth_year, visit_duration, submitted_at) 
-         VALUES ($1, $2, $3, $4, $5, $6)",
+        "INSERT INTO votes (teacher_rating, school_rating, field_of_study, birth_year, visit_duration) 
+         VALUES ($1, $2, $3, $4, $5)",
         vote.teacher_rating,
         vote.school_rating,
         vote.field_of_study,
         vote.birth_year,
-        vote.visit_duration,
-        Utc::now()
+        vote.visit_duration
     )
     .execute(pool.get_ref())
     .await;
@@ -59,4 +60,3 @@ pub async fn submit_vote(
         Err(_) => HttpResponse::InternalServerError().json("Error submitting vote"),
     }
 }
-

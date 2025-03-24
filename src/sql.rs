@@ -12,7 +12,7 @@ pub async fn connect_db() -> PgPool {
 }
 
 pub async fn init_db(pool: &PgPool) {
-    sqlx::query!(
+    sqlx::query(
         "CREATE TABLE IF NOT EXISTS votes (
             id SERIAL PRIMARY KEY,
             teacher_rating INT CHECK (teacher_rating BETWEEN 1 AND 5),
@@ -27,4 +27,3 @@ pub async fn init_db(pool: &PgPool) {
     .await
     .expect("Failed to initialize database");
 }
-
